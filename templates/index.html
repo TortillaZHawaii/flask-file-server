@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File system</title>
+</head>
+<body>
+    <h3>/{{ path }}</h3>
+
+    <dl>
+        {% for entry in contents if entry.type == 'dir' %}
+        <dt>
+        <a href="{{ join_path(path, entry.name) }}">
+            {{ entry.name }}/
+        </a>
+        </dt>
+        {% endfor %}
+        {% for entry in contents if entry.type == 'file' %}
+        <dt>
+        <a href="{{ join_path(path, entry.name) }}">
+            {{ entry.name }}
+        </a>
+        </dt>
+        {% endfor %}
+    </dl>
+    <hr>
+    <form id="upload" method="post" enctype="multipart/form-data">
+        <div>
+            <label>Username</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <input type="file" id="myFile" name="files[]">
+        <button>Upload</button>
+    </form>
+</body>
+</html>
