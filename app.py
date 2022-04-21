@@ -3,7 +3,7 @@ from flask.views import MethodView
 import os
 
 app = Flask(__name__)
-root = os.path.normpath("/tmp/server")
+root = os.path.normpath("/var/server")
 login = 'admin'
 password = 'admin'
 
